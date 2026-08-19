@@ -10,7 +10,7 @@ O projeto foi criado com foco em praticidade, organização dos dados e acompanh
 
 ## 🎯 Objetivo
 
-O Finance Tracker permite centralizar movimentações financeiras pessoais em uma única aplicação.
+O **Finance Tracker** permite centralizar movimentações financeiras pessoais em uma única aplicação.
 
 Com ele é possível acompanhar:
 
@@ -29,7 +29,15 @@ Com ele é possível acompanhar:
 
 ## ➕ Nova movimentação
 
-Cadastro de receitas e despesas com data, categoria, forma de pagamento, descrição e observações.
+Cadastro de receitas e despesas com:
+
+- data;
+- tipo da movimentação;
+- valor;
+- categoria;
+- forma de pagamento;
+- descrição;
+- observações.
 
 ![Nova movimentação](./assets/01-nova-movimentacao.png)
 
@@ -37,7 +45,7 @@ Cadastro de receitas e despesas com data, categoria, forma de pagamento, descri�
 
 ## 📊 Dashboard Financeiro
 
-O dashboard apresenta os principais indicadores do período:
+O dashboard apresenta os principais indicadores financeiros do período:
 
 - saldo acumulado;
 - receitas do mês;
@@ -45,13 +53,15 @@ O dashboard apresenta os principais indicadores do período:
 - resultado mensal;
 - percentual da meta utilizada.
 
-![Dashboard resumo](./assets/02-dashboard-resumo.png)
+![Dashboard Financeiro](./assets/02-dashboard-resumo.png)
 
 ---
 
 ## 📌 Despesas por categoria
 
-O sistema consolida automaticamente as despesas e identifica as categorias com maior impacto financeiro.
+O sistema consolida automaticamente as despesas registradas e apresenta a distribuição dos gastos por categoria.
+
+Também identifica a categoria com maior impacto financeiro no mês selecionado.
 
 ![Despesas por categoria](./assets/03-despesas-categoria.png)
 
@@ -59,7 +69,7 @@ O sistema consolida automaticamente as despesas e identifica as categorias com m
 
 ## 📈 Evolução mensal
 
-Visualização da evolução de:
+O Finance Tracker apresenta a evolução financeira mensal considerando:
 
 - receitas;
 - despesas;
@@ -71,9 +81,9 @@ Visualização da evolução de:
 
 ## 📚 Histórico
 
-Todas as movimentações ficam registradas em histórico.
+Todas as movimentações ficam registradas em um histórico.
 
-Também é possível aplicar filtros por:
+O usuário pode aplicar filtros por:
 
 - tipo;
 - categoria.
@@ -84,7 +94,9 @@ Também é possível aplicar filtros por:
 
 ## ✏️ Edição de movimentações
 
-O sistema permite atualizar ou excluir registros já cadastrados.
+Os registros existentes podem ser atualizados ou excluídos.
+
+Na edição, o sistema mantém os dados anteriormente cadastrados, incluindo a forma de pagamento utilizada.
 
 ![Edição de movimentação](./assets/06-edicao-movimentacao.png)
 
@@ -94,9 +106,13 @@ O sistema permite atualizar ou excluir registros já cadastrados.
 
 É possível definir uma meta de despesas para cada mês.
 
-O sistema compara automaticamente os gastos realizados com o limite definido.
+O sistema compara automaticamente os gastos realizados com o limite definido e informa:
 
-![Metas](./assets/07-metas.png)
+- percentual utilizado;
+- valor ainda disponível;
+- alerta quando a meta é ultrapassada.
+
+![Metas mensais](./assets/07-metas.png)
 
 ---
 
@@ -133,7 +149,7 @@ Disponível: R$ 650,00
 
 Quando as despesas permanecem dentro do limite, o sistema informa o valor restante.
 
-Caso a meta seja ultrapassada, é exibido um alerta informando o excesso.
+Caso a meta seja ultrapassada, é exibido um alerta informando o valor excedido.
 
 ---
 
@@ -185,7 +201,7 @@ Outro
 
 # ✏️ Edição e exclusão
 
-As movimentações possuem um identificador único.
+Cada movimentação recebe um identificador único.
 
 No histórico, o usuário pode selecionar um registro para:
 
@@ -206,25 +222,25 @@ Excluir movimentação
 
 Os dados podem ser exportados em dois formatos.
 
-### CSV
+## CSV
 
-Arquivo contendo o histórico completo das movimentações.
+Arquivo contendo o histórico completo das movimentações financeiras.
 
-### Excel
+## Excel
 
-Arquivo `.xlsx` contendo as movimentações financeiras para análises adicionais.
+Arquivo `.xlsx` contendo as movimentações registradas para análises adicionais.
 
 ---
 
 # 🔐 Privacidade
 
-Os dados financeiros são armazenados **localmente** na pasta:
+Os dados financeiros são armazenados localmente na pasta:
 
 ```text
 data/
 ```
 
-Os arquivos gerados pelo sistema não devem ser enviados ao GitHub.
+Os arquivos gerados pela aplicação não devem ser enviados para repositórios públicos.
 
 O projeto utiliza `.gitignore` para impedir o versionamento de:
 
@@ -248,10 +264,10 @@ Dessa forma, os dados financeiros utilizados localmente permanecem fora do repos
 
 ---
 
-# 📁 Estrutura
+# 📁 Estrutura do projeto
 
 ```text
-Finance_Tracker_v0_1/
+Finance-Tracker/
 │
 ├── app.py
 ├── README.md
@@ -280,11 +296,11 @@ Finance_Tracker_v0_1/
 
 # ⚙️ Organização do código
 
-### `app.py`
+## `app.py`
 
 Responsável pela interface Streamlit e integração entre as funcionalidades da aplicação.
 
-### `core/finance.py`
+## `core/finance.py`
 
 Responsável pelos cálculos financeiros:
 
@@ -297,9 +313,9 @@ Resumo por categoria
 Resumo mensal
 ```
 
-### `core/storage.py`
+## `core/storage.py`
 
-Responsável pelo armazenamento local das movimentações e metas.
+Responsável pelo armazenamento local das movimentações e das metas mensais.
 
 ---
 
@@ -308,13 +324,13 @@ Responsável pelo armazenamento local das movimentações e metas.
 ## 1. Clone o repositório
 
 ```bash
-git clone URL_DO_REPOSITORIO
+git clone https://github.com/JailtonDayvid38/Finance-Tracker.git
 ```
 
 ## 2. Entre na pasta
 
 ```bash
-cd Finance_Tracker_v0_1
+cd Finance-Tracker
 ```
 
 ## 3. Crie o ambiente virtual
@@ -324,6 +340,8 @@ py -m venv .venv
 ```
 
 ## 4. Instale as dependências
+
+### Windows
 
 ```bash
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
@@ -335,7 +353,7 @@ py -m venv .venv
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-A aplicação será aberta no navegador.
+A aplicação será aberta no navegador pelo Streamlit.
 
 ---
 
@@ -343,7 +361,7 @@ A aplicação será aberta no navegador.
 
 ## v0.1
 
-Primeira versão funcional do Finance Tracker.
+Primeira versão funcional do **Finance Tracker**.
 
 Principais funcionalidades:
 
